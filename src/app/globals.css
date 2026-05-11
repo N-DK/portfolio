@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* ───── Light mode ───── */
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+
+  /* Palette từ Figma */
+  --color-silver: #c8c8c8; /* Xám bạc */
+  --color-sage: #7ec4a4; /* Xanh mint/sage */
+  --color-tan: #b08850; /* Nâu vàng */
+  --color-brown: #7a5c50; /* Nâu đất */
+  --color-rose: #b84c4c; /* Đỏ hồng/rose */
+
+  /* Token chính — gán từ palette */
+  --primary: var(--color-sage);
+  --primary-foreground: #ffffff;
+  --accent: var(--color-tan);
+  --muted: var(--color-silver);
+  --muted-foreground: var(--color-brown);
+  --destructive: var(--color-rose);
+  --border: #e5e5e5;
+}
+
+/* ───── Dark mode via next-themes ───── */
+[data-theme="dark"] {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  --primary: var(--color-sage);
+  --primary-foreground: #0a0a0a;
+  --accent: var(--color-tan);
+  --muted: #1a1a1a;
+  --muted-foreground: #a3a3a3;
+  --destructive: var(--color-rose);
+  --border: #262626;
+}
+
+/* ───── Fallback theo OS ───── */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --primary: var(--color-sage);
+    --primary-foreground: #0a0a0a;
+    --accent: var(--color-tan);
+    --muted: #1a1a1a;
+    --muted-foreground: #a3a3a3;
+    --destructive: var(--color-rose);
+    --border: #262626;
+  }
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --font-roboto-slab: var(--font-roboto-slab);
+  --font-montserrat: var(--font-montserrat);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Montserrat", Arial, sans-serif; /* ✅ thêm vào đây */
+}
+
+html,
+body {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
