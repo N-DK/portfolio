@@ -37,7 +37,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${robotoSlab.variable} antialiased relative min-h-screen`}
       >
-        <ThemeProvider>
+        <ThemeProvider attribute="class" enableSystem defaultTheme="system">
           <Header />
           <QueryProvider>
             <Suspense fallback={null}>

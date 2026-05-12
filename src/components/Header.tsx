@@ -5,18 +5,18 @@ import Link from "next/link";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-const tabs = ["Profile", "Showcases", "Projects", "Contact"];
+const TABS = ["Profile", "Showcases", "Projects", "Contact"];
 
 export default function Header() {
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
   const [active, setActive] = useState("Profile");
 
+  const isDark = resolvedTheme === "dark";
+
   useEffect(() => {
     setMounted(true);
   }, []);
-
-  const isDark = resolvedTheme === "dark";
 
   return (
     <motion.header
@@ -35,7 +35,7 @@ export default function Header() {
 
         <div className="flex items-end gap-8">
           <nav className="hidden md:flex items-center gap-8">
-            {tabs.map((tab) => (
+            {TABS.map((tab) => (
               <a
                 href={`#${tab.toLowerCase()}`}
                 key={tab}
@@ -74,11 +74,7 @@ export default function Header() {
                 />
                 <Moon
                   size={16}
-                  className={`absolute right-2 transition-all duration-300 ${
-                    isDark
-                      ? "opacity-100 text-foreground"
-                      : "opacity-40 text-muted-foreground"
-                  }`}
+                  className={`absolute right-2 transition-all duration-300 text-foreground`}
                 />
                 <div
                   className={`h-6 w-6 rounded-full bg-primary-foreground shadow-lg transition-transform duration-300 ${

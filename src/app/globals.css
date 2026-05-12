@@ -5,25 +5,23 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Palette từ Figma */
-  --color-silver: #c8c8c8; /* Xám bạc */
-  --color-sage: #7ec4a4; /* Xanh mint/sage */
-  --color-tan: #b08850; /* Nâu vàng */
-  --color-brown: #7a5c50; /* Nâu đất */
-  --color-rose: #b84c4c; /* Đỏ hồng/rose */
+  --color-silver: #989898;
+  --color-sage: #7ec4a4;
+  --color-tan: #b08850;
+  --color-brown: #7a5c50;
+  --color-rose: #ab4e4f;
 
-  /* Token chính — gán từ palette */
   --primary: var(--color-sage);
   --primary-foreground: #ffffff;
   --accent: var(--color-tan);
   --muted: var(--color-silver);
-  --muted-foreground: var(--color-brown);
+  --muted-foreground: var(--color-silver);
   --destructive: var(--color-rose);
   --border: #e5e5e5;
 }
 
 /* ───── Dark mode via next-themes ───── */
-[data-theme="dark"] {
+.dark {
   --background: #0a0a0a;
   --foreground: #ededed;
 
@@ -38,7 +36,7 @@
 
 /* ───── Fallback theo OS ───── */
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme]) {
+  :root:not(.dark):not(.light) {
     --background: #0a0a0a;
     --foreground: #ededed;
     --primary: var(--color-sage);
@@ -70,7 +68,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Montserrat", Arial, sans-serif; /* ✅ thêm vào đây */
+  font-family: "Montserrat", Arial, sans-serif;
 }
 
 html,
