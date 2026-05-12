@@ -22,16 +22,16 @@
 
 /* ───── Dark mode via next-themes ───── */
 .dark {
-  --background: #0a0a0a;
+  --background: #181a1b;
   --foreground: #ededed;
 
   --primary: var(--color-sage);
   --primary-foreground: #0a0a0a;
   --accent: var(--color-tan);
-  --muted: #1a1a1a;
+  --muted: #2f363d;
   --muted-foreground: #a3a3a3;
   --destructive: var(--color-rose);
-  --border: #262626;
+  --border: #404750;
 }
 
 /* ───── Fallback theo OS ───── */

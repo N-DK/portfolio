@@ -33,7 +33,7 @@ export default function Header() {
           Khoa <br /> Ngo.
         </Link>
 
-        <div className="flex items-end gap-8">
+        <div className="flex items-start gap-8">
           <nav className="hidden md:flex items-center gap-8">
             {TABS.map((tab) => (
               <a
@@ -58,29 +58,34 @@ export default function Header() {
 
           <div>
             {!mounted ? (
-              <div className="h-8 w-16 animate-pulse rounded-full bg-muted" />
+              <div className="h-[20px] w-[40px] animate-pulse rounded-full bg-muted" />
             ) : (
               <button
                 onClick={() => setTheme(isDark ? "light" : "dark")}
-                className="relative flex h-8 w-16 items-center rounded-full bg-muted px-1 transition-all duration-300"
+                className="relative flex h-[20px] w-[40px] items-center rounded-full bg-muted px-1 transition-all duration-300"
               >
-                <Sun
-                  size={16}
-                  className={`absolute left-2 transition-all duration-300 ${
-                    isDark
-                      ? "opacity-40 text-muted-foreground"
-                      : "opacity-100 text-accent"
-                  }`}
-                />
-                <Moon
-                  size={16}
-                  className={`absolute right-2 transition-all duration-300 text-foreground`}
-                />
                 <div
-                  className={`h-6 w-6 rounded-full bg-primary-foreground shadow-lg transition-transform duration-300 ${
-                    isDark ? "translate-x-8" : "translate-x-0"
+                  className={`h-[25px] w-[25px] left-0 top-[50%] -translate-y-[50%] absolute rounded-full bg-foreground shadow-lg transition-transform duration-300 ${
+                    isDark ? "translate-x-4" : "translate-x-0"
                   }`}
-                />
+                >
+                  <Sun
+                    size={16}
+                    className={`absolute left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%] transition-all duration-300 ${
+                      isDark
+                        ? "opacity-0 text-muted-foreground"
+                        : "opacity-100 text-accent"
+                    }`}
+                  />
+                  <Moon
+                    size={16}
+                    className={`absolute left-[50%] -translate-x-[50%] top-[50%] -translate-y-[50%] transition-all duration-300 ${
+                      isDark
+                        ? "opacity-100 text-primary-foreground"
+                        : "opacity-0 text-muted-foreground"
+                    }`}
+                  />
+                </div>
               </button>
             )}
           </div>
