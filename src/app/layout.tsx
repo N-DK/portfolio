@@ -7,6 +7,10 @@ import { Roboto_Slab, Montserrat } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
 import { ThemeProvider } from "next-themes";
+import NextSection from "@/components/NextSection";
+import PageIndicator from "@/components/PageIndicator";
+import ScrollDownIndicator from "@/components/ScrollDownIndicator";
+import SocialMediaIndicator from "@/components/SocialMediaIndicator";
 const robotoSlab = Roboto_Slab({
   subsets: ["latin"],
   weight: ["400", "600"],
@@ -42,11 +46,14 @@ export default function RootLayout({
           <QueryProvider>
             <Suspense fallback={null}>
               <NProgressProvider>
-                <div className="relative min-h-screen">{children}</div>
+                <div className="">{children}</div>
               </NProgressProvider>
             </Suspense>
           </QueryProvider>
-          <Footer />
+          <NextSection />
+          <PageIndicator />
+          <ScrollDownIndicator />
+          <SocialMediaIndicator />
         </ThemeProvider>
       </body>
     </html>

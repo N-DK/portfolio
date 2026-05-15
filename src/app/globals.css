@@ -1,5 +1,11 @@
 @import "tailwindcss";
 
+/* reset css */
+
+* {
+  box-sizing: border-box;
+}
+
 /* ───── Light mode ───── */
 :root {
   --background: #ffffff;
@@ -10,14 +16,22 @@
   --color-tan: #b08850;
   --color-brown: #7a5c50;
   --color-rose: #ab4e4f;
+  --color-light: #000000d9;
+  --color-repo: #001aff;
+  --color-repo-border: #e1e4e8;
+  --image-shade: #e8e6e6;
 
-  --primary: var(--color-sage);
+  --primary: var(--color-rose);
   --primary-foreground: #ffffff;
   --accent: var(--color-tan);
   --muted: var(--color-silver);
   --muted-foreground: var(--color-silver);
   --destructive: var(--color-rose);
+  --light: var(--color-light);
   --border: #e5e5e5;
+  --repo: var(--color-repo);
+  --repo-border: var(--color-repo-border);
+  --shade-color: var(--image-shade);
 }
 
 /* ───── Dark mode via next-themes ───── */
@@ -25,13 +39,17 @@
   --background: #181a1b;
   --foreground: #ededed;
 
-  --primary: var(--color-sage);
+  --light: #ffffffd9;
+  --repo: #86b5ff;
+  --primary: var(--color-rose);
   --primary-foreground: #0a0a0a;
   --accent: var(--color-tan);
   --muted: #2f363d;
   --muted-foreground: #a3a3a3;
   --destructive: var(--color-rose);
   --border: #404750;
+  --repo-border: #373c3e;
+  --shade-color: #26292a;
 }
 
 /* ───── Fallback theo OS ───── */
@@ -59,6 +77,10 @@
   --color-muted-foreground: var(--muted-foreground);
   --color-destructive: var(--destructive);
   --color-border: var(--border);
+  --color-shade: var(--shade-color);
+  --color-light: var(--light);
+  --color-repo: var(--repo);
+  --color-repo-border: var(--repo-border);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
   --font-roboto-slab: var(--font-roboto-slab);
@@ -73,6 +95,7 @@ body {
 
 html,
 body {
+  scroll-behavior: smooth;
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
